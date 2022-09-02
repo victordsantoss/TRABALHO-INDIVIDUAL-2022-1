@@ -34,9 +34,23 @@ services:
     networks:
       - postgres
 
+  web:
+    build:
+      context: ./library_front
+      dockerfile: Dockerfile
+    volumes:
+      - front:/var/lib/front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - postgres
+
 volumes:
   pgdata: 
   api:
+  front:
 
 networks:
   postgres:
