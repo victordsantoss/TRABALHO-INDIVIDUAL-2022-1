@@ -58,11 +58,14 @@ services:
       - web
     depends_on:
       - web
+    networks:
+      - postgres
 
 volumes:
   pgdata: 
   api:
   front:
+  server:
 
 networks:
   postgres:
