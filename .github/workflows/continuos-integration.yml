@@ -6,13 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env: 
-  POSTGRES_DB: library_db
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
-  POSTGRES_HOST: db
-  POSTGRES_PORT: 5432
-
 jobs:
   build:
 
@@ -25,6 +18,18 @@ jobs:
       with:
         python-version: 3.9
     - name: Run docker-compose
-      if: ${{ env.POSTGRES_PORT == '5432' }}
       working-directory: ./
       run: docker-compose up -d 
+      
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Docker Compose Up
+        working-directory: ./.
+        run: docker-compose up -d 
+      - name: Run Api tests
+        working-directory: ./library_back
+        run: python3 manage.py test
