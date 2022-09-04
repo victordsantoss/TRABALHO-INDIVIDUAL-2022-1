@@ -1,4 +1,4 @@
-name: Github Actions
+name: Continuos Integration
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
       with:
         python-version: 3.9
     - name: Build the Docker image
-      run: docker-compose up --build
+      run: docker-compose up -d
