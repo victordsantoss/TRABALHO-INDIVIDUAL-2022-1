@@ -17,8 +17,9 @@ jobs:
       with:
         python-version: 3.9
     - name: Manage Github Secrets
-      uses: Videndum/manage-github-secrets@1.0.0-beta
-      env:
+      uses: Resnovas/variable-mastermind@1.0.1
+      with:
+        mode: 'environment' 
         POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
