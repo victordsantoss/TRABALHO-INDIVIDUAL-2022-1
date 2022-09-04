@@ -16,15 +16,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.9
-    - name: Manage Github Secrets
-      uses: Resnovas/variable-mastermind@1.0.1
-      with:
-        mode: 'environment' 
-        POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-        POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
     - name: Run docker-compose
       working-directory: ./
       run: docker-compose up -d 
