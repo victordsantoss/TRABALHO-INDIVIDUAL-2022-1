@@ -18,5 +18,5 @@ jobs:
         python-version: 3.9
     - name: Run docker-compose
       working-directory: ./
-      run: docker-compose up -d 
+      run: docker-compose build
   
