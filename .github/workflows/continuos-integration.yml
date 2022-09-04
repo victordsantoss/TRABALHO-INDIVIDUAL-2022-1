@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: 3.9
       - name: Docker Compose Up
-        working-directory: ./.
+        working-directory: ./
         run: docker-compose up -d 
       - name: Run Api tests
         working-directory: ./library_back
