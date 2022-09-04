@@ -17,5 +17,5 @@ jobs:
       with:
         python-version: 3.9
     - name: Run docker-compose
-      working-directory: ./app
+      working-directory: ./
       run: sudo docker-compose up -d
