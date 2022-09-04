@@ -17,5 +17,4 @@ jobs:
       with:
         python-version: 3.9
     - name: Build the Docker image
-      working-directory: ./
       run: docker-compose up --build
