@@ -9,7 +9,9 @@ RUN apt-get update \
 
 RUN pip3 install -r requirements.txt
 
-RUN python3 manage.py makemigrations
+RUN chmod +x ./setup.sh && ./setup.sh
+
+# RUN python3 manage.py makemigrations
 
 # RUN python3 manage.py migrate
 EXPOSE 8000

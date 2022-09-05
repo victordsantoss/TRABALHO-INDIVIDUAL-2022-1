@@ -22,7 +22,7 @@ services:
     build:
       context: ./library_back
       dockerfile: Dockerfile
-    command: bash  -c " python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     container_name: api
     restart: unless-stopped
     volumes:
