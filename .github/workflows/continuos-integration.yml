@@ -28,7 +28,14 @@ jobs:
       - name: Run docker-compose
         working-directory: ./
         run: docker-compose up -d 
-      - name: Run test
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Tests
         working-directory: ./library_back
-        run: python3 manage.py test
+        run: |
+          python manage.py test
+
+        
   
