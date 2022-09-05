@@ -21,4 +21,14 @@ jobs:
     - name: Run docker-compose
       working-directory: ./
       run: docker-compose build
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run docker-compose
+        working-directory: ./
+        run: docker-compose up -d 
+      - name: Run test
+        working-directory: ./library_back
+        run: python3 manage.py test
   
